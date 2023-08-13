@@ -1,6 +1,7 @@
 # import the necessary packages
 import argparse
 import cv2
+from google.colab.patches import cv2_imshow
 
 def record_click(event, x, y, flags, param):
 	if event == cv2.EVENT_LBUTTONDOWN:
@@ -15,7 +16,8 @@ cv2.setMouseCallback("image", record_click)
 # keep looping until the 'q' key is pressed
 while True:
 	# display the image and wait for a keypress
-	cv2.imshow("image", image)
+	#cv2.imshow("image", image)
+	cv2_imshow("image", image)
 	key = cv2.waitKey(1) & 0xFF
 	# if the 'c' key is pressed, break from the loop
 	if key == ord('q'):
